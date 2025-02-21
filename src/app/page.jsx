@@ -30,6 +30,7 @@ export default function Dashboard() {
   }, []);
 
   const fetchRegistrations = async () => {
+    setLoading(true); // Show loading state during fetch
     try {
       const res = await fetch('/api/registrations');
       const data = await res.json();
@@ -37,6 +38,8 @@ export default function Dashboard() {
         setRegistrations(data.data);
         setFilteredRegistrations(data.data);
         localStorage.setItem('registrations', JSON.stringify(data.data));
+      } else {
+        console.error('Fetch failed:', data.error);
       }
     } catch (error) {
       console.error('Error fetching registrations:', error);
@@ -129,7 +132,6 @@ export default function Dashboard() {
     }
   };
 
-  // Get unique events and colleges for filter dropdowns
   const uniqueEvents = [...new Set(registrations.map(reg => reg.event))];
   const uniqueColleges = [...new Set(registrations.map(reg => reg.college))];
 
@@ -144,9 +146,14 @@ export default function Dashboard() {
       <div className="main-content">
         <div className="header">
           <h1>Event Registrations</h1>
-          <button className="add-btn" onClick={() => setShowForm(true)}>
-            + Add Registration
-          </button>
+          <div className="header-buttons">
+            <button className="add-btn" onClick={() => setShowForm(true)}>
+              + Add Registration
+            </button>
+            <button className="fetch-btn" onClick={fetchRegistrations} disabled={loading}>
+              {loading ? 'Fetching...' : 'Refresh'}
+            </button>
+          </div>
         </div>
 
         {/* Search and Filter Controls */}

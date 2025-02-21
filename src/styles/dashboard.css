@@ -21,7 +21,12 @@
   font-size: 28px;
 }
 
-.add-btn {
+.header-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.add-btn, .fetch-btn {
   background: #fff;
   color: #000;
   padding: 10px 20px;
@@ -31,8 +36,13 @@
   transition: opacity 0.3s;
 }
 
-.add-btn:hover {
+.add-btn:hover, .fetch-btn:hover:not(:disabled) {
   opacity: 0.9;
+}
+
+.fetch-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .controls {
@@ -63,7 +73,7 @@
 .table-container {
   background: #1a1a1a;
   border-radius: 5px;
-  overflow-x: auto; /* For responsive table */
+  overflow-x: auto;
 }
 
 table {

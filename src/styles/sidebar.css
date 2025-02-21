@@ -1,107 +1,119 @@
 /* styles/sidebar.css */
 .sidebar {
-    background: #111;
-    height: 100vh;
-    width: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: width 0.3s ease;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 1000;
-  }
-  
-  .sidebar.open {
-    width: 250px;
-  }
-  
-  .sidebar-toggle {
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    text-align: left;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background 0.3s;
-  }
-  
-  .sidebar-toggle:hover {
-    background: #333;
-  }
-  
-  .nav-list {
-    list-style: none;
-    margin-top: 20px;
-  }
-  
-  .nav-item {
-    margin-bottom: 10px;
-  }
-  
-  .nav-link {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.3s;
-  }
-  
-  .nav-link:hover {
-    background: #333;
-  }
-  
-  .nav-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    display: inline-block;
-  }
-  
-  .nav-text {
-    display: none;
-  }
-  
-  .sidebar.open .nav-text {
-    display: inline;
-  }
-  
-  .export-section {
-    padding-top: 20px;
-    border-top: 1px solid #444;
-  }
-  
-  .export-title {
-    font-size: 14px;
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  
-  .sidebar.open .export-title {
-    opacity: 1;
-  }
-  
-  .export-btn {
-    width: 100%;
-    padding: 10px;
-    background: #fff;
-    color: #000;
-    border: none;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: opacity 0.3s, transform 0.2s;
-    font-size: 14px;
-  }
-  
-  .export-btn:hover {
-    opacity: 0.9;
-    transform: translateX(5px);
-  }
+  background: #111;
+  height: 100vh;
+  width: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar-toggle {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.sidebar-toggle:hover {
+  background: #333;
+}
+
+.nav-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.nav-link:hover {
+  background: #333;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.nav-text {
+  display: none;
+}
+
+.sidebar.open .nav-text {
+  display: inline;
+}
+
+.export-section {
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.export-title {
+  font-size: 14px;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sidebar.open .export-title {
+  opacity: 1;
+}
+
+.export-btn {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+  font-size: 14px;
+}
+
+.export-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateX(5px);
+}
+
+.export-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.export-error {
+  color: #ff4444;
+  font-size: 12px;
+  padding: 5px 10px;
+  text-align: center;
+}
